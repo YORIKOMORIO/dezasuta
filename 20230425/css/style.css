@@ -1,0 +1,39 @@
+@charset "urf-8";
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  max-width: 960px;
+  margin: 0 auto;
+  border: 1px solid;
+  padding-left: 0;
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 980px;
+  margin: 0 auto;
+}
+
+.wrap div {
+  width: 30%;
+  height: 30%;
+  background: red;
+  color: white;
+  text-align: center;
+  line-height: 300px;
+  margin-bottom: 100px;
+    
+@media screen and (max-width: 767px;){
+    .wrap{
+        display: block;
+    }
+
+    .wrap div {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
