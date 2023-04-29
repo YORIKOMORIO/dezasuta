@@ -5,8 +5,8 @@ div {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 960px;
   margin: 0 auto;
+  max-width: 960px;
   align-items: center;
 }
 
@@ -16,6 +16,7 @@ div {
   background: blue;
   margin-bottom: 20px;
 }
+
 /* work1-2 */
 .wrap-red div {
   width: 30%;
@@ -25,6 +26,7 @@ div {
 }
 
 /* work1-3 */
+
 html,
 body,
 h1,
@@ -71,16 +73,20 @@ h1 {
 ul {
   display: flex;
 }
+
 li {
   padding: 5px 20px;
   border-right: 1px solid;
 }
 li:last-child {
-  border: 0;
+  border: 0px;
 }
 
 /* work2-1 */
 @media screen and (max-width: 767px) {
+  .wrap-menu {
+    display: block;
+  }
   h1 {
     margin-left: 10px;
   }
@@ -88,6 +94,7 @@ li:last-child {
     width: 100%;
     justify-content: first;
     flex-direction: column;
+    margin-top: 10px;
   }
 
   li {
@@ -95,5 +102,10 @@ li:last-child {
     padding-bottom: 10px;
     padding-top: 10px;
     border-right: none;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  li:last-child {
+    border-bottom: 1px solid;
   }
 }
