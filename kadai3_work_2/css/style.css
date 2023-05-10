@@ -33,6 +33,7 @@ img {
   vertical-align: bottom;
   border: none;
 }
+/* リセットcssここまで */
 
 body {
   background: #eeeeee;
@@ -48,8 +49,7 @@ h2 {
   color: darkcyan;
 }
 
-ul,
-p {
+ul {
   display: flex;
   max-width: 960px;
   margin: 0 auto;
@@ -60,35 +60,32 @@ li {
   background-color: white;
 }
 
-.wrap-1,
-.wrap-2,
-.wrap-3 {
+p {
+  margin: 10px;
+}
+
+.wrap {
   display: flex;
   align-items: center;
 }
 
-.wrap-1 div,
-.wrap-2 div,
-.wrap-3 div {
+.wrap div {
+  align-items: center;
   width: 10px;
   height: 30px;
-  margin: 10px 10px;
+  margin: 10px;
   background-color: darkcyan;
 }
 
-@media screen and (max-width: 767px) {
-  .wrap {
-    display: block;
-  }
-
-  ul,
-  p {
-    max-width: 960px;
+@media screen and (max-width: 400px) {
+  ul {
     flex-direction: column;
-    margin-top: 10px;
   }
 
   li {
-    margin: 10px 10px;
+    margin: 10px;
+  }
+  img {
+    width: 100%;
   }
 }
