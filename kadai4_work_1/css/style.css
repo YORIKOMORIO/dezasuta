@@ -4,6 +4,12 @@
 
 /*利用するタグによってこちらの内容は増やす*/
 
+/* スムーススクロール */
+/* PAGETOPを押した時にスムーズにスクロールされる */
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 h1,
@@ -23,6 +29,8 @@ li {
   font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3",
     "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝",
     "ＭＳ 明朝", serif;
+  /*  */
+  font-feature-settings: "falt";
 }
 
 a {
@@ -87,6 +95,7 @@ body {
 
 /* ここから作成 */
 /* lead */
+/* 修正点：divの中にテキストだけを入れることはNG。今回は全てpタグへ変更 */
 .lead {
   text-align: center;
   padding-top: 100px;
@@ -99,12 +108,12 @@ body {
   font-size: 30px;
 }
 
-.lead_text {
+.lead_body {
   font-size: 82px;
   line-height: 96px;
   letter-spacing: 0.1em;
 }
-.lead p {
+.lead_foot {
   margin-top: 30px;
   font-size: 23px;
   line-height: 38px;
@@ -112,6 +121,9 @@ body {
 }
 
 /* about */
+/* about_imgに横幅の指定が入っていない。画面幅縮めた時の見え方を意識 */
+/* about_imgにwidth:50%;を追加 */
+/* about_img imgのmax-width:500px;を削除 */
 .about {
   display: flex;
   max-width: 1000px;
@@ -121,75 +133,99 @@ body {
   margin-top: 100px;
 }
 .about_img img {
-  max-width: 500px;
+  /* max-width: 500px; 削除　*/
   border-bottom-right-radius: 90px;
 }
 .about_wrap {
-  margin-left: 80px;
+  /* 検証ツールでabout_wrapにカーソルを当てた時に420x560と表示されているので */
+  /* width:42%;を追加 */
+  width: 42%;
+  /* 画面幅縮めた時に余白が大きく見えてしまう。ここも％で表示 */
+  /* 80pxから8%に変更 */
+  margin-left: 8%;
 }
-.about_wrap img {
+.about h2 {
+  /* imgにかけていたものをh2に移動 */
+  width: 272px;
   margin-top: 50px;
   margin-bottom: 40px;
-  width: 272px;
 }
-.about_wrap div {
+/* .about_wrap img {
+  イメージに直接widthや余白を指定しない。
+  全てh2へ移動
+  width: 272px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+} */
+.about_heading {
   font-size: 44px;
   line-height: 61px;
   margin-bottom: 10px;
 }
-.about_wrap p {
+.about_text {
   font-size: 16px;
   line-height: 26px;
 }
 
 /* menu */
 .menu {
-  text-align: center;
+  /* テキストは左寄せ */
+  /* text-align: center; */
   padding-top: 100px;
 }
-.menu_logo img {
+.menu h2 {
+  /* 追加　（menu_logo imgは削除） */
   width: 151px;
+  margin: 0 auto;
   padding-bottom: 40px;
 }
+/* .menu_logo img {
+  imgにwidthをかけるのではなく、imgを囲っているclassにwidthをかける
+  imgは100%表示にしないとSP版の時におかしくなるので
+  width: 151px;　削除して親へ移動
+  padding-bottom: 40px; 削除してmenu_logoへ移動
+  } */
 .menu ul {
   display: flex;
   max-width: 1000px;
   margin: 0 auto;
+  /* 追加 */
+  justify-content: space-between;
   padding-right: 10px;
   padding-left: 10px;
-  /* textとimgを揃える */
-  box-sizing: border-box;
+  /* 30%が崩れてしまうので削除 */
+  /* box-sizing: border-box; */
 }
-.menu_img img {
+.menu li {
+  /* imgに指定していたものをここに移動 */
+  width: 30%;
+  /* 削除 */
+  /* margin: 0 auto; */
+}
+.menu li img {
   border-top-right-radius: 40px;
-  width: 300px;
 }
-.menu_title {
+/* .menu_wrap img {
+  imgに指定しない親へ移動
+  width: 300px; 
+  border-top-right-radius: 40px;
+} */
+.menu h3 {
   font-size: 38px;
   line-height: 22px;
   margin-top: -10px;
-  margin-left: 20px;
-  text-align: left;
+  margin-left: 15px;
+  /* 削除 */
+  /* text-align: left; */
   color: #d30202;
+  /* h3にすると太字になる為以下を追加する */
+  font-weight: normal;
 }
-.menu_img p {
+.menu li p {
   font-size: 17px;
   line-height: 25px;
   text-align: left;
-  margin: 20px 10px;
-}
-
-/* address */
-.address {
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-.address_img img {
-  width: 226px;
-  margin-right: 50px;
+  margin-top: 24px;
 }
 
 /* gallery */
@@ -197,34 +233,47 @@ body {
   text-align: center;
   padding-top: 80px;
 }
-.gallery_logo img {
+/* .gallery_logo img { */
+/* imgからh2に変更 */
+.gallery h2 {
   width: 245px;
-  margin-bottom: 25px;
+  padding-bottom: 25px;
+  margin: 0 auto;
 }
 .gallery_wrap {
   display: flex;
+  /* 削除 */
+  /* width: 20%; */
 }
-.gallery_wrap img {
+/* .gallery_wrap img {
   width: 20%;
-}
+} */
 
 /* event */
 .event {
-  text-align: center;
+  /* 削除  */
+  /* text-align: center; */
   max-width: 1000px;
   margin: 0 auto;
   padding-right: 10px;
   padding-left: 10px;
   padding-top: 50px;
 }
-.event_logo img {
+/* .event_logo img { */
+/* img指定していたものをh2へ移動 */
+.event h2 {
   width: 173px;
   margin-bottom: 40px;
+  margin: 0 auto;
+  padding-bottom: 40px;
 }
-.text_wrap {
+.event ul {
   border: solid 3px;
   background: #fff;
   max-width: 1000px;
+}
+.event time {
+  margin-right: 45px;
 }
 .text1,
 .text2,
@@ -233,9 +282,10 @@ body {
   font-size: 23px;
   margin-left: 150px;
 }
-.text_wrap div {
+/* 削除 */
+/* .text_wrap div {
   margin-right: 60px;
-}
+} */
 .text1 {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -246,8 +296,15 @@ body {
 .text3 {
   margin-bottom: 30px;
 }
-.text_wrap p {
+/* 削除 */
+/* リンクに飛ぶようにするため下線を引かず以下の項目を追加 */
+/* .text_wrap p {
   border-bottom: solid#4F260B;
+} */
+/* ボーダーを指定するときは、太さ・種類・カラー */
+/* 追加 */
+.event a {
+  text-decoration: underline;
 }
 
 /* access */
@@ -255,13 +312,20 @@ body {
   text-align: center;
   padding-top: 60px;
 }
-.access_rogo img {
+
+/* .access_rogo img { */
+/* imgからh2へ移動 */
+.access h2 {
   width: 213px;
+  margin: 0 auto;
   margin-bottom: 40px;
 }
 .access_map iframe {
   width: 100%;
   height: 470px;
+  /*  追加 */
+  /* iframeが2px下に入ってしまうのを防ぐために入れる */
+  display: block;
 }
 
 /* footer */
@@ -270,16 +334,27 @@ body {
   padding-top: 70px;
   padding-bottom: 80px;
 }
-.address_text p {
+.address {
+  display: flex;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.address_logo {
+  width: 226px;
+  margin-right: 50px;
+}
+.address_text {
   font-size: 22px;
   line-height: 39px;
   margin: 0px;
 }
 
-.copyright div {
+.copyright {
   text-align: center;
   font-size: 16px;
-  margin-top: 60px;
+  margin-top: 70px;
 }
 
 /* pagetop */
