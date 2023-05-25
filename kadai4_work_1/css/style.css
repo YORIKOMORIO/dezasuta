@@ -77,6 +77,11 @@ body {
 .header_logo {
   width: 226px;
 }
+/* 授業 */
+.sp_nav,
+.sp_btn {
+  display: none;
+}
 
 .pc_nav ul {
   display: flex;
@@ -95,7 +100,8 @@ body {
 
 /* ここから作成 */
 /* lead */
-/* 修正点：divの中にテキストだけを入れることはNG。今回は全てpタグへ変更 */
+/* 修正点：divの中にテキストだけを入れることはしない。適切なタグがなくデザインの扱いとして必要であれば使っても良い。
+今回は全てpタグへ変更 */
 .lead {
   text-align: center;
   padding-top: 100px;
@@ -119,7 +125,9 @@ body {
   line-height: 38px;
   letter-spacing: 0.1em;
 }
-
+.lead_sp_only {
+  display: none;
+}
 /* about */
 /* about_imgに横幅の指定が入っていない。画面幅縮めた時の見え方を意識 */
 /* about_imgにwidth:50%;を追加 */
@@ -131,10 +139,6 @@ body {
   padding-right: 10px;
   padding-left: 10px;
   margin-top: 100px;
-}
-.about_img img {
-  /* max-width: 500px; 削除　*/
-  border-bottom-right-radius: 90px;
 }
 .about_wrap {
   /* 検証ツールでabout_wrapにカーソルを当てた時に420x560と表示されているので */
@@ -165,6 +169,15 @@ body {
 .about_text {
   font-size: 16px;
   line-height: 26px;
+}
+.about_sp_only h2 {
+  display: none;
+}
+.about_img_sp {
+  display: none;
+}
+.about_text_only {
+  display: none;
 }
 
 /* menu */
@@ -322,9 +335,7 @@ body {
 }
 .access_map iframe {
   width: 100%;
-  height: 470px;
-  /*  追加 */
-  /* iframeが2px下に入ってしまうのを防ぐために入れる */
+  height: 470px; /*  追加 iframeが2px下に入ってしまうのを防ぐために入れる */
   display: block;
 }
 
@@ -349,12 +360,14 @@ body {
   font-size: 22px;
   line-height: 39px;
   margin: 0px;
+  color: black;
 }
 
 .copyright {
   text-align: center;
   font-size: 16px;
   margin-top: 70px;
+  color: black;
 }
 
 /* pagetop */
@@ -365,128 +378,283 @@ body {
   width: 125px;
 }
 
-/* レスポンシブ */
-@media screen and (max-width: 376px) {
-  /* ハンバーガーメニュー未作成*/
-  /* ヘッダー画像縦横比 */
-
-  /* lead */
-  .lead {
-    padding-top: 35px;
-  }
-  .lead_top {
-    font-size: 17px;
-    margin-bottom: 30px;
-  }
-  .lead_text {
-    /* 38pxにすると”を”が改行される為35px */
-    font-size: 35px;
-    line-height: 44px;
-    letter-spacing: 0.022em;
-  }
-  .lead p {
-    /* 改行位置見直し */
-    margin-top: 20px;
-    font-size: 16px;
-    line-height: 30px;
-    letter-spacing: 0.1em;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  /* about */
-  /* aboutとimgが逆 */
-  /* imgの縦横比 */
-  .about {
-    display: block;
-    padding: 0px;
-  }
-  .about_img img {
-    width: 100%;
-    border-bottom-right-radius: 0px;
-  }
-  .about_wrap img {
-    width: 160px;
-  }
-  .about_wrap {
-    margin-left: 0px;
-    text-align: center;
-  }
-  .about_wrap div {
-    font-size: 36px;
-    line-height: 45px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: left;
-  }
-  .about_wrap p {
-    font-size: 16px;
-    line-height: 28px;
-    padding-left: 10px;
-    padding-right: 10px;
-    text-align: left;
-  }
-
-  /* menu */
-  .menu_logo img {
-    width: 87px;
-    padding: 20px;
-  }
-  .menu ul {
-    /* imgとtextが揃ってない */
-    display: block;
-  }
-
-  /* gallery */
-  .gallery_logo img {
-    width: 142px;
-  }
-  .is_pc {
+/* レスポンシブ ハンバーガー*/
+@media screen and (max-width: 1100px) {
+  /* jugyou */
+  .pc_nav {
     display: none;
   }
-  .gallery_wrap img {
-    width: 100%;
-  }
+  /* ハンバーガー */
 
-  /* event */
-  .event_logo img {
-    width: 100px;
-  }
-  .text1,
-  .text2,
-  .text3 {
+  .sp_btn {
     display: block;
-    font-size: 16px;
-    margin-left: 0px;
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    height: 23px;
+    cursor: pointer;
+    z-index: 2;
+    /* 重なり順を指定 */
   }
-  .text_wrap div {
-    margin-left: 10px;
-    text-align: left;
-  }
-  /* テキストの最後•••にする */
-  .text_wrap p {
-    margin-left: 30px;
-    text-align: left;
-  }
-
-  /* access */
-  .access_rogo img {
-    width: 125px;
-  }
-  /* 地図の高さ調整 */
-
-  .address {
+  .sp_btn span {
     display: block;
+    position: relative;
+    top: 10px;
+    width: 33px;
+    height: 3px;
+    border-radius: 2px;
+    background: #fff;
+    transition: 0.3s; /* transitionは状態が変化するまでに何秒かけるか*/
+    /* ハンバーガーメニューの切り替え時にtransitionを入れることで0.3かけて切り替わる */
+    /* 擬似要素にも同様に追加する */
   }
-  .address_img img {
-    padding-bottom: 30px;
+  /* 擬似要素 */
+  .sp_btn span::before,
+  .sp_btn span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 33px;
+    height: 3px;
+    border-radius: 2px;
+    background: #fff;
+    transition: 0.3s;
   }
-  .address_text p {
+  .sp_btn span::before {
+    bottom: 10px;
+    /* 三本線の下の線 */
+  }
+  .sp_btn span::after {
+    top: 10px;
+    /* 三本線の上の線　 */
+  }
+  /* ハンバーガーメニュー閉じる */
+  .sp_btn.open span {
+    background: transparent;
+    /* ハンバーガーメニューの真ん中の線を見えなくする */
+  }
+  .sp_btn.open span::before {
+    bottom: 0;
+    /* 先ほどずらした三本線の上下の線を元に戻す */
+    transform: rotate(45deg);
+    /* 回転させるプロパティ。45度回転 */
+  }
+  .sp_btn.open span::after {
+    top: 0;
+    transform: rotate(135deg);
+    /* 下の線も戻してから次は135度回転 */
+  }
+
+  /* ハンバーガーメニュー */
+  .sp_nav {
+    position: absolute; /*  好きな位置に配置*/
+    top: 0;
+    left: 0; /*  topとleftを０で右上に指定*/
+    width: 100%; /* 横幅100％ */
+    height: 100vh; /* デバイスの高さ100％を100vhとする*/
+    background: rgba(0, 0, 0, 0.8);
+    /* rgbaアルファを入れることによって透過さえられる。0.8だから80%薄くしている */
+    z-index: 1;
+    /* レイヤーの重なり順を指定 */
+  }
+  .sp_nav ul {
+    display: flex;
+    flex-direction: column; /* flex-direction=どの方向に並べますか */
+    /* columnにすることによって縦に並ぶ */
+    /* flex-direction: columnにすることによって下のjustifyやalineの上下左右が入れ替わる */
+    justify-content: center; /* 上下を真ん中 */
+    align-items: center; /* 左右を真ん中 */
+    height: 100%; /* 高さ100% */
+  }
+  .sp_nav ul li {
+    padding: 20px 0;
+    color: #fff;
     font-size: 18px;
-    line-height: 31px;
+    font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
+      "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    text-align: center;
   }
-  .pagetop {
-    bottom: 200px;
-    right: 10px;
+  .lead_body {
+    font-size: 60px;
+  }
+  .about_heading {
+    font-size: 30px;
+  }
+  .lead_foot {
+    font-size: 18px;
+  }
+
+  /* レスポンシブSP */
+  @media screen and (max-width: 767px) {
+    /* lead */
+    .lead {
+      padding-top: 40px;
+      padding-bottom: 70px;
+    }
+    .lead_top {
+      font-size: 17px;
+    }
+    .lead_body {
+      font-size: 38px;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+    }
+    .lead_sp_only {
+      display: block;
+    }
+
+    /* about */
+    .about_wrap h2 {
+      display: none;
+    }
+    .about_sp_only h2 {
+      display: block;
+    }
+    .about {
+      display: block;
+      margin: 0px;
+      padding: 0px;
+    }
+    .about h2 {
+      margin: 0 auto;
+      padding-bottom: 17px;
+      width: 160px;
+    }
+    .about_img {
+      display: none;
+    }
+    .about_heading {
+      font-size: 36px;
+      line-height: 1.25;
+      margin: 0px;
+      padding-top: 35px;
+      padding-bottom: 31px;
+      padding-left: 20px;
+    }
+    .about_text {
+      font-size: 16px;
+      line-height: 1.75;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .about_img_sp {
+      display: block;
+    }
+    .about_wrap {
+      width: 100%;
+      margin-left: 0px;
+    }
+    .about_heading p {
+      margin-right: 20px;
+    }
+
+    /* menu */
+    .menu {
+      padding-top: 50px;
+    }
+    .menu h2 {
+      width: 87px;
+      padding-bottom: 23px;
+    }
+    .menu ul {
+      /* imgとtextが揃ってない */
+      display: block;
+    }
+    .menu li {
+      width: 300px;
+      padding-left: 37px;
+      padding-right: 37px;
+      margin: 0 auto;
+    }
+    .menu li p {
+      padding-bottom: 60px;
+    }
+    /* gallery */
+    .gallery {
+      padding-top: 0px;
+    }
+
+    }
+    .is_pc {
+      display: none;
+    }
+    .is_pc_sp {
+      width: 100%;
+    }
+
+    .gallery h2 {
+      width: 142px;
+    }
+
+    /* event */
+    .event {
+      padding-top: 25px;
+    }
+    .event_logo h2 {
+      width: 100px;
+      padding-bottom: 25px;
+    }
+    .text1,
+    .text2,
+    .text3 {
+      display: block;
+      font-size: 16px;
+      margin-left: 0px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .text_wrap div {
+      margin-left: 10px;
+      text-align: left;
+    }
+    .text1 p {
+      margin-left: 30px;
+      text-align: left;
+      border-bottom: 5px solid #4f260b;
+    }
+    .text1 {
+      display: block;
+    }
+
+    /* access */
+    .access h2 {
+      width: 125px;
+      margin-bottom: 12px;
+    }
+    .access {
+      padding-top: 34px;
+    }
+    .access_map if {
+      height: 190px;
+    }
+    /* 地図の高さ調整 */
+    .footer {
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+
+    .address {
+      display: block;
+    }
+    .address_logo {
+      padding-top: 40px;
+      padding-bottom: 30px;
+    }
+
+    .address_text {
+      font-size: 18px;
+      line-height: 1.72;
+    }
+    .copyright {
+      margin-top: 30px;
+      padding-bottom: 34px;
+    }
+
+    .pagetop {
+      bottom: 200px;
+      right: 10px;
+      width: 100px;
+    }
   }
 }
