@@ -30,7 +30,7 @@ li {
     "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝",
     "ＭＳ 明朝", serif;
   /*  */
-  font-feature-settings: "falt";
+  font-feature-settings: "palt";
 }
 
 a {
@@ -77,6 +77,25 @@ body {
 .header_logo {
   width: 226px;
 }
+
+/* スライダー調整 */
+.slick-dots {
+  bottom: 20px;
+  /* 画像より下にあった・・を画像内に持ってくる */
+  /* デフォルトは−25px */
+}
+.slick-dots li.slick-active button:before,
+.slick-dots li button:before {
+  /* ボタンの色を白にする */
+  /* ↑検証ツールから値をコピペする */
+  /* ボタンがアクティブしている方としていない方 */
+  color: #fff;
+}
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+  /* デフォルトのmarginを０にする */
+}
+
 /* 授業 */
 .sp_nav,
 .sp_btn {
@@ -179,6 +198,9 @@ body {
 .about_text_only {
   display: none;
 }
+.about_img img {
+  border-bottom-right-radius: 80px;
+}
 
 /* menu */
 .menu {
@@ -217,6 +239,7 @@ body {
 }
 .menu li img {
   border-top-right-radius: 40px;
+  width: 100%;
 }
 /* .menu_wrap img {
   imgに指定しない親へ移動
@@ -261,7 +284,43 @@ body {
 /* .gallery_wrap img {
   width: 20%;
 } */
+.slick-prev,
+.slick-next {
+  position: absolute; /*絶対配置にする*/
+  z-index: 3;
+  top: 42%;
+  cursor: pointer; /*マウスカーソルを指マークに*/
+  outline: none; /*クリックをしたら出てくる枠線を消す*/
+  border-top: 3px solid #fff; /*矢印の色*/
+  border-right: 3px solid #fff; /*矢印の色*/
+  height: 18px;
+  width: 18px;
+}
+.slick-next {
+  margin-right: 400px;
+}
+.slick-prev {
+  margin-left: 400px;
+}
 
+.slick-next:before {
+  content: none;
+}
+.slick-prev:before {
+  content: none;
+}
+
+.slick-prev {
+  /*戻る矢印の位置と形状*/
+  left: 2.5%;
+  transform: rotate(-135deg);
+}
+
+.slick-next {
+  /*次へ矢印の位置と形状*/
+  right: 2.5%;
+  transform: rotate(45deg);
+}
 /* event */
 .event {
   /* 削除  */
@@ -284,31 +343,24 @@ body {
   border: solid 3px;
   background: #fff;
   max-width: 1000px;
+  padding: 30px;
 }
 .event time {
   margin-right: 45px;
-}
-.text1,
-.text2,
-.text3 {
-  display: flex;
-  font-size: 23px;
-  margin-left: 150px;
 }
 /* 削除 */
 /* .text_wrap div {
   margin-right: 60px;
 } */
-.text1 {
-  margin-top: 30px;
-  margin-bottom: 20px;
+.event ul li {
+  display: flex;
+  font-size: 23px;
+  margin-left: 150px;
 }
-.text2 {
-  margin-bottom: 20px;
+.event ul li + li {
+  margin-top: 20px;
 }
-.text3 {
-  margin-bottom: 30px;
-}
+
 /* 削除 */
 /* リンクに飛ぶようにするため下線を引かず以下の項目を追加 */
 /* .text_wrap p {
@@ -483,178 +535,221 @@ body {
   .lead_foot {
     font-size: 18px;
   }
+}
 
-  /* レスポンシブSP */
-  @media screen and (max-width: 767px) {
-    /* lead */
-    .lead {
-      padding-top: 40px;
-      padding-bottom: 70px;
-    }
-    .lead_top {
-      font-size: 17px;
-    }
-    .lead_body {
-      font-size: 38px;
-      line-height: 1.15;
-      letter-spacing: 0.02em;
-    }
-    .lead_sp_only {
-      display: block;
-    }
+/* レスポンシブSP */
+@media screen and (max-width: 767px) {
+  /* header */
+  .header_wrap h1 {
+    width: 187px;
+  }
+  /* lead */
+  .lead {
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+  .lead_top {
+    font-size: 17px;
+    margin-bottom: 25px;
+  }
+  .lead_body {
+    font-size: 38px;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+  }
+  .lead_foot {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-top: 20px;
+  }
+  .lead_sp_only {
+    display: block;
+  }
 
-    /* about */
-    .about_wrap h2 {
-      display: none;
-    }
-    .about_sp_only h2 {
-      display: block;
-    }
-    .about {
-      display: block;
-      margin: 0px;
-      padding: 0px;
-    }
-    .about h2 {
-      margin: 0 auto;
-      padding-bottom: 17px;
-      width: 160px;
-    }
-    .about_img {
-      display: none;
-    }
-    .about_heading {
-      font-size: 36px;
-      line-height: 1.25;
-      margin: 0px;
-      padding-top: 35px;
-      padding-bottom: 31px;
-      padding-left: 20px;
-    }
-    .about_text {
-      font-size: 16px;
-      line-height: 1.75;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-    .about_img_sp {
-      display: block;
-    }
-    .about_wrap {
-      width: 100%;
-      margin-left: 0px;
-    }
-    .about_heading p {
-      margin-right: 20px;
-    }
+  /* about */
+  .about_wrap h2 {
+    display: none;
+  }
+  .about_sp_only h2 {
+    display: block;
+  }
+  .about {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+  }
+  .about h2 {
+    margin: 0 auto;
+    padding-bottom: 17px;
+    width: 160px;
+  }
+  .about_img {
+    display: none;
+  }
+  .about_heading {
+    font-size: 36px;
+    line-height: 1.25;
+    margin: 0px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
+  .about_text {
+    font-size: 16px;
+    line-height: 1.75;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .about_img_sp {
+    display: block;
+  }
+  .about_wrap {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .about_heading p {
+    margin-right: 20px;
+  }
 
-    /* menu */
-    .menu {
-      padding-top: 50px;
-    }
-    .menu h2 {
-      width: 87px;
-      padding-bottom: 23px;
-    }
-    .menu ul {
-      /* imgとtextが揃ってない */
-      display: block;
-    }
-    .menu li {
-      width: 300px;
-      padding-left: 37px;
-      padding-right: 37px;
-      margin: 0 auto;
-    }
-    .menu li p {
-      padding-bottom: 60px;
-    }
-    /* gallery */
-    .gallery {
-      padding-top: 0px;
-    }
+  /* menu */
+  .menu {
+    padding-top: 50px;
+  }
+  .menu h2 {
+    width: 87px;
+    padding-bottom: 18px;
+  }
+  .menu h3 {
+    margin-top: -5px;
+  }
+  .menu ul {
+    /* imgとtextが揃ってない */
+    display: block;
+    padding: 0px;
+  }
+  .menu li {
+    width: 100%;
+    /* widthをpxで指定すると左右に余白ができてしまうので、レスポンシブでは100%にする */
+    /* pc版の.menu_li imgにwidth100%を入れることでSP版も横幅いっぱいに表示される */
+    /* width:100%にpaddingを入れると外側に余白ができてしまいスクロールの原因になる */
+    padding-left: 37px;
+    padding-right: 37px;
+    box-sizing: border-box;
+    /* paddingを入れる場合は、box-sizing:border-box;を入れることで要素の幅高さにpaddingを含むことができる*/
+    margin: 0 auto;
+  }
+  .menu li p {
+    font-size: 17px;
+    line-height: 1.58;
+    padding-bottom: 80px;
+    margin-top: 30px;
+  }
+  /* gallery */
+  .gallery {
+    padding-top: 0px;
+  }
 
-    }
-    .is_pc {
-      display: none;
-    }
-    .is_pc_sp {
-      width: 100%;
-    }
+  .gallery h2 {
+    width: 142px;
+    padding-bottom: 15px;
+  }
+  .slick-slide img {
+    width: 100%;
+  }
+  .slick-next {
+    margin-right: 20px;
+  }
+  .slick-prev {
+    margin-left: 20px;
+  }
 
-    .gallery h2 {
-      width: 142px;
-    }
+  /* event */
+  .event {
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .event_logo h2 {
+    width: 100px;
+    padding-bottom: 15px;
+  }
+  .event ul {
+    padding: 20px;
+  }
+  .event ul li {
+    display: block;
+    margin: 0;
+    font-size: 16px;
+    margin-left: 0px;
+  }
+  .event ul li + li {
+    /* 隣接セレクタ（＋）を使うことでliに余白を取ることができる */
+    margin-top: 20px;
+  }
+  .event time {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .event a {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    /* 上の3行の省略•••にするタグはaタグに指定してあげる */
+  }
+  /* aタグもtimeタグもインライン要素で横並びの性質を持っているのでどちらにもdisplay:blockをかける */
+  .text_wrap div {
+    margin-left: 10px;
+    text-align: left;
+  }
+  .text1 p {
+    margin-left: 30px;
+    text-align: left;
+    border-bottom: 5px solid #4f260b;
+  }
+  .text1 {
+    display: block;
+  }
 
-    /* event */
-    .event {
-      padding-top: 25px;
-    }
-    .event_logo h2 {
-      width: 100px;
-      padding-bottom: 25px;
-    }
-    .text1,
-    .text2,
-    .text3 {
-      display: block;
-      font-size: 16px;
-      margin-left: 0px;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .text_wrap div {
-      margin-left: 10px;
-      text-align: left;
-    }
-    .text1 p {
-      margin-left: 30px;
-      text-align: left;
-      border-bottom: 5px solid #4f260b;
-    }
-    .text1 {
-      display: block;
-    }
+  /* access */
+  .access h2 {
+    width: 125px;
+    margin-bottom: 5px;
+  }
+  .access {
+    padding-top: 25px;
+  }
+  .access_map if {
+    height: 190px;
+  }
+  .access_map iframe {
+    height: 190px;
+  }
+  .footer {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 
-    /* access */
-    .access h2 {
-      width: 125px;
-      margin-bottom: 12px;
-    }
-    .access {
-      padding-top: 34px;
-    }
-    .access_map if {
-      height: 190px;
-    }
-    /* 地図の高さ調整 */
-    .footer {
-      padding-top: 0px;
-      padding-bottom: 0px;
-    }
+  .address {
+    display: block;
+  }
+  .address_logo {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
 
-    .address {
-      display: block;
-    }
-    .address_logo {
-      padding-top: 40px;
-      padding-bottom: 30px;
-    }
+  .address_text {
+    font-size: 18px;
+    line-height: 1.72;
+  }
+  .copyright {
+    margin-top: 30px;
+    padding-bottom: 34px;
+  }
 
-    .address_text {
-      font-size: 18px;
-      line-height: 1.72;
-    }
-    .copyright {
-      margin-top: 30px;
-      padding-bottom: 34px;
-    }
-
-    .pagetop {
-      bottom: 200px;
-      right: 10px;
-      width: 100px;
-    }
+  .pagetop {
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
   }
 }

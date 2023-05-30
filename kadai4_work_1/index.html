@@ -7,32 +7,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>デザインカフェ2</title>
     <meta name="description" content="デザインカフェのサイトです。">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <!-- ↑↑slickのCDNはstyle.cssの前に記述する（３つの中の２つがここに入る） -->
     <link rel="stylesheet" href="css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- ↑slickのjsの方のCDNはJqueryの後に記述する（３つ目がここに入る） -->
 
 </head>
 
 <body>
     <!-- jquery -->
     <script>
+        //ハンバーガーメニュー 
         $(function () {
             $('.sp_btn,.sp_nav li').on('click', function () {
                 $('.sp_nav').fadeToggle();
                 $('.sp_btn').toggleClass('open');
                 // spボタンにopen classをつけたり外したりしたいので上記を追加
             });
-        });
+            // slick
+            $('.header_slider').slick({    // ('')内はスライダーにしたいclass名を記述
+                // ,忘れ注意
+                autoplay: true,  // 　自動で画像がスライドする
+                autoplaySpeed: 2000, // 自動でスライドする時の秒数を指定
+                dots: true,  // 画像の下にあるドットを表示させる
+                arrows: false,  // デフォルトの矢印を消す
+                // スライドしているところとボタンの色を変えたいのでcssも変更する
+            });
+            // 課題６
+            $('.gallery_wrap').slick({
+                autoplay: true,  // 　自動で画像がスライドする
+                autoplaySpeed: 2000,
+                slidesToShow: 5,
+                responsive: [
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1
+                        },
+                    },
+                ],
+            });
+        }); 
     </script>
     <!-- ヘッダー泉先生と作成 -->
 
     <header>
         <div id="header" class="header_slider">
+            <!-- header_sliderは大きな枠組みの中にスライドさせたい要素を入れること -->
             <div>
-                <!-- pictureタグ -->
-                <!-- sp版の時に画像を切り替える -->
+                <!-- pictureタグ pcとspで全く違う画像に切り替えたい時に使う-->
+                <!-- src=にpcの画像、srcset=にspの画像 -->
+                <!-- media=にはどのタイミングで切り替えるか記述　 -->
                 <picture>
-                    <source srcset="images/sp_main_vs@2x-100.jpg" media="(max-width: 767px)">
+                    <source media="(max-width:767px)" srcset="images/sp_main_vs@2x-100.jpg">
                     <img src="images/pc_first-100.jpg" alt="店内の様子">
+                </picture>
+            </div>
+            <!-- slick用に↑のdivをコピペする。 -->
+            <!-- srcsetとsrcをslickの画像に置き換える -->
+            <div>
+                <picture>
+                    <source media="(max-width:767px)" srcset="images/sp_main_vs_2@2x-100.jpg">
+                    <img src="images/slider_2.jpg" alt="店内の様子">
                 </picture>
             </div>
         </div>
@@ -60,6 +100,7 @@
             </nav>
         </div>
     </header>
+
     <!-- ヘッダー終了 -->
 
     <!-- ここから作成 -->
@@ -139,16 +180,17 @@
         <h2><img src="images/gallery@2x.png" alt="gallery"></h2>
         <!-- ここはスライドにする為、ul liではなくdivに変更 -->
         <!-- ul liは３つ以上リストになっているものに使う -->
-        <!-- <ul>
-            <li>　削除 -->
+        <!-- <ul><li>　削除 -->
         <div class="gallery_wrap">
             <!-- imgタグをそのまま縦並びにするのはNG -->
             <!-- imgの前にdivを追加 -->
-            <div><img class="is_pc" src="images/pc_gallary_05-100.jpg" alt="GALLERY_05"></div>
-            <div><img class="is_pc" src="images/pc_gallary_04-100.jpg" alt="GALLERY_04"></div>
-            <div><img class="is_pc_sp" src="images/pc_gallary_03-100.jpg" alt="GALLERY_03"></div>
-            <div><img class="is_pc" src="images/pc_gallary_02-100.jpg" alt="GALLERY_02"></div>
-            <div><img class="is_pc" src="images/pc_gallary_01-100.jpg" alt="GALLERY_01"></div>
+            <div><img class="is_pc" src="images/pc_gallary_05-100.jpg" alt="賑わっている店内"></div>
+            <div><img class="is_pc" src="images/pc_gallary_04-100.jpg" alt="コーヒー豆"></div>
+            <div><img class="is_pc" src="images/pc_gallary_03-100.jpg" alt="キッチンが見える店内"></div>
+            <div><img class="is_pc" src="images/pc_gallary_02-100.jpg" alt="CAFE電光掲示板"></div>
+            <div><img class="is_pc" src="images/pc_gallary_01-100.jpg" alt="ラテアート"></div>
+            <div><img class="is_pc" src="images/pc_gallary_01-100.jpg" alt="ラテアート"></div>
+
         </div>
 
     </section>
@@ -177,25 +219,19 @@
             </div> -->
         <ul>
             <li>
-                <div class="text1">
-                    <!-- 日付はtimeタグを使う -->
-                    <!-- ダブルクォーテーションの中はハイフンの日付 -->
-                    <time datetime="2020-06-23">2020.06.23</time>
-                    <!-- pからaに変更。リンクが飛ぶような仕様になっているため -->
-                    <a href="">7月はイベント出店のため0/0お休みします</a>
-                </div>
+                <!-- 日付はtimeタグを使う -->
+                <!-- ダブルクォーテーションの中はハイフンの日付 -->
+                <time datetime="2020-06-23">2020.06.23</time>
+                <!-- pからaに変更。リンクが飛ぶような仕様になっているため -->
+                <a href="">7月はイベント出店のため0/0お休みします</a>
             </li>
             <li>
-                <div class="text2">
-                    <time datetime="2020-03-15">2020.03.15</time>
-                    <a href="">春の新商品新発売。話題のあのブランドとコラボ</a>
-                </div>
+                <time datetime="2020-03-15">2020.03.15</time>
+                <a href="">春の新商品新発売。話題のあのブランドとコラボ</a>
             </li>
             <li>
-                <div class="text3">
-                    <time datetime="2020-02-06">2020.02.06</time>
-                    <a href="">コーヒーの日で30％OFFイベントを開催［3日間限定］</a>
-                </div>
+                <time datetime="2020-02-06">2020.02.06</time>
+                <a href="">コーヒーの日で30％OFFイベントを開催［3日間限定］</a>
             </li>
         </ul>
 
@@ -244,6 +280,7 @@
             <img src="images/to_top@2x.png" alt="totop">
         </a>
     </div>
+
 
 </body>
 
