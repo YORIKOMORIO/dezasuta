@@ -288,19 +288,13 @@ body {
 .slick-next {
   position: absolute; /*絶対配置にする*/
   z-index: 3;
-  top: 42%;
+  top: 50%;
   cursor: pointer; /*マウスカーソルを指マークに*/
   outline: none; /*クリックをしたら出てくる枠線を消す*/
   border-top: 3px solid #fff; /*矢印の色*/
   border-right: 3px solid #fff; /*矢印の色*/
   height: 18px;
   width: 18px;
-}
-.slick-next {
-  margin-right: 400px;
-}
-.slick-prev {
-  margin-left: 400px;
 }
 
 .slick-next:before {
@@ -312,14 +306,14 @@ body {
 
 .slick-prev {
   /*戻る矢印の位置と形状*/
-  left: 2.5%;
-  transform: rotate(-135deg);
+  left: 33%;
+  transform: translate(0, -50%) rotate(-135deg);
 }
 
 .slick-next {
   /*次へ矢印の位置と形状*/
-  right: 2.5%;
-  transform: rotate(45deg);
+  right: 33%;
+  transform: translate(0, -50%) rotate(45deg);
 }
 /* event */
 .event {
@@ -641,7 +635,7 @@ body {
   .menu li p {
     font-size: 17px;
     line-height: 1.58;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
     margin-top: 30px;
   }
   /* gallery */
@@ -657,10 +651,10 @@ body {
     width: 100%;
   }
   .slick-next {
-    margin-right: 20px;
+    right: 5%;
   }
   .slick-prev {
-    margin-left: 20px;
+    left: 5%;
   }
 
   /* event */
