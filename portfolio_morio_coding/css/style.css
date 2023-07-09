@@ -1,5 +1,4 @@
 @charset "utf-8";
-
 /* リセットcss */
 html,
 body,
@@ -15,7 +14,6 @@ li {
   margin: 0;
   padding: 0;
   line-height: 1;
-  /*デフォルトの文字色、font-familyを予め当てておく*/
   color: #232323;
   background: #f2eee7;
   font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
@@ -23,14 +21,11 @@ li {
 }
 
 a {
-  /*下線を消す*/
   text-decoration: none;
-  /*色を消す*/
   color: inherit;
 }
 
 ul {
-  /*左の「・」を消す*/
   list-style: none;
 }
 
@@ -50,26 +45,30 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 5% 0 3%;
+  padding: 30px 0 30px 3%;
   width: 100%;
   box-sizing: border-box;
 }
 .pc_nav ul {
   display: flex;
+  width: 670px;
 }
 .pc_nav ul li {
-  width: 100px;
+  margin-right: 35px;
 }
-.mainvisual_inner {
+.mv {
+  height: 690px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.mv_inner {
   width: 100%;
-  position: absolute;
-  top: 30%;
-  /*全体の高さ*/
   height: 50px;
+  display: contents;
 }
 .scroll {
   display: block;
-  padding-top: 70px;
+  padding-top: 30px;
   position: relative;
   text-align: center;
 }
@@ -108,38 +107,44 @@ img {
   }
 }
 
-.header .mainvisual {
-  width: 100vw;
+.header .mv {
+  width: 100%;
   height: 75vh;
 }
+
+/* concept */
+
 .concept {
   margin: 0 auto;
-  width: 100%;
   margin-top: 90px;
   margin-bottom: 285px;
 }
 .concept p {
   margin: 0 auto;
-  margin-top: 125px;
+  margin-top: 160px;
   writing-mode: vertical-rl;
   text-orientation: upright;
   line-height: 1.95;
   font-family: Noto Sans CJK JP;
 }
 
+/* works */
+.home-works {
+  width: 1000px;
+  margin: 0 auto;
+}
 .home-works_wrap {
   display: flex;
-  max-width: 1000px;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 0 auto;
 }
 .home-works h2 {
   width: 76px;
-  float: right;
-  margin-right: 93px;
+  position: absolute;
+  left: calc(50% + 500px);
 }
-.home-works_wrap div {
+
+.home-works_wrap li {
   width: 45%;
   height: 450px;
   margin-bottom: 100px;
@@ -155,11 +160,18 @@ a.btn_works {
   background: #232323;
   color: #f2eee7;
   transition: 0.3s;
-  margin-top: 125px;
+  margin-top: 25px;
+  border: #232323 solid 2px;
 }
 a.btn_works:hover {
   color: #232323;
   background: #fffe3e;
+}
+
+/* skill */
+.skill {
+  width: 1000px;
+  margin: 0 auto;
 }
 .skill_wrap {
   margin-top: 290px;
@@ -167,11 +179,10 @@ a.btn_works:hover {
 }
 .skill h2 {
   width: 76px;
-  float: left;
-  margin-left: 93px;
+  position: absolute;
+  left: calc(50% - 576px);
 }
 .skill_head {
-  margin-right: 182px;
   margin-bottom: 90px;
 }
 .skill_head p {
@@ -198,36 +209,39 @@ a.btn_works:hover {
 .skill_foot p {
   font-size: 16px;
   line-height: 2.25;
-  margin-left: 190px;
+}
+
+/* about */
+.about {
+  width: 1000px;
+  margin: 0 auto;
 }
 .about h2 {
   width: 76px;
-  float: right;
-  margin-right: 93px;
+  position: absolute;
+  left: calc(50% + 500px);
 }
-.about_photo {
-  width: 29.2%;
-  height: 500px;
+
+.about_wrap {
+  display: flex;
 }
+
 .about_wrap p {
   font-size: 17px;
   line-height: 2.11;
   letter-spacing: 0.05em;
+  margin: 100px 0 100px 110px;
 }
 .about_wrap img {
+  max-width: 400px;
+  height: 500px;
+}
+.about_wrap_inner img {
   width: 260px;
-  margin-top: 90px;
-  margin-left: 100px;
+  height: 146px;
+  margin-left: 200px;
 }
-.about {
-  display: flex;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.about_wrap {
-  margin-left: 106px;
-  margin-top: 95px;
-}
+
 a.btn_about {
   display: block;
   text-align: center;
@@ -241,18 +255,23 @@ a.btn_about {
   transition: 0.3s;
   margin-top: 110px;
   margin-bottom: 290px;
+  border: #232323 solid 2px;
 }
 a.btn_about:hover {
   color: #232323;
   background: #fffe3e;
 }
+
+/* contact */
+
 .contact {
   width: 100%;
   display: flex;
   background-color: #fffe3e;
   text-align: center;
-  padding-top: 227px;
-  padding-bottom: 196px;
+  height: 400px;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact h2 {
@@ -264,6 +283,7 @@ a.btn_about:hover {
   font-size: 16px;
   line-height: 1.56;
   background-color: #fffe3e;
+  margin-bottom: 35px;
 }
 .contact_wrap {
   margin-left: 70px;
@@ -278,7 +298,6 @@ a.btn_about:hover {
   color: #232323;
   font-size: 20px;
   border-radius: 0px;
-  width: 300px;
   height: 70px;
   font-weight: bold;
   border: 2px solid #232323;
@@ -292,7 +311,7 @@ a.btn_about:hover {
   color: #232323;
   background-color: #fffe3e;
 }
-
+/* copyright */
 .copyright {
   width: 155px;
   height: 14px;
