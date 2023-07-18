@@ -7,46 +7,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORKS｜森尾世里子</title>
     <meta name="description" content="森尾世里子のポートフォリオです。">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" href="../android-chrome-256x256.png">
-
+    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
 <body>
-
-
-
-
-
-
+    <script>
+        //ハンバーガーメニュー 
+        $(function () {
+            $('.sp_btn,.sp_nav li').on('click', function () {
+                $('.sp_nav').fadeToggle();
+                $('.sp_btn').toggleClass('open');
+                // spボタンにopen classをつけたり外したりしたいので上記を追加
+            });
+        });
+    </script>
     <!-- header-->
-
     <header>
         <div id="header" class="header">
             <div class="header_inner">
-                <h1 class="header_logo"><img src="images/rogo.png" alt="morio portfolio site."></h1>
+                <h1 class="header_logo">
+                    <a href="../index.html#header"></a>
+                    <img src="images/rogo.png" alt="morio portfolio site.">
+                </h1>
                 <nav class="pc_nav">
                     <ul>
-                        <li><a href="../index.html"><img src="images/home_top.png" alt="home"></a></li>
+                        <li><a href="../index.html#header"><img src="images/home_top.png" alt="home"></a></li>
                         <li><a href="../index.html#concept"><img src="images/concept_top.png" alt="concept"></a></li>
                         <li><a href="../index.html#home-works"><img src="images/works_top.png" alt="works"></a></li>
                         <li><a href="../index.html#skill"><img src="images/skill_top.png" alt="skill"></a></li>
                         <li><a href="../index.html#about"><img src="images/about_top.png" alt="about"></a></li>
-                        <li><a href="../index.html#contact"><img src="images/contact_top.png
-                            " alt="contact"></a></li>
+                        <li><a href="../index.html#contact"><img src="images/contact_top.png" alt="contact"></a></li>
+                    </ul>
+                </nav>
+                <div class="sp_btn "><span></span></div>
+                <nav class="sp_nav">
+                    <ul>
+                        <li><a href="../index.html#header">HOME</a></li>
+                        <li><a href="../index.html#concept">CONCEPT</a></li>
+                        <li><a href="../index.html#home-works">WORKS</a></li>
+                        <li><a href="../index.html#skill">SKILL</a></li>
+                        <li><a href="../index.html#about">ABOUT</a></li>
+                        <li><a href="../index.html#contact">CONCEPT</a></li>
                     </ul>
                 </nav>
             </div>
-
         </div>
     </header>
     <div class="ttl_wrap">
         <div class="ttl_box"></div>
         <div><img src="images/works_top.png" alt="works"></div>
         <p>作品一覧</p>
-
     </div>
     <div class="works">
         <ul class="works_wrap">
@@ -56,13 +75,9 @@
             <li><a href="./trrrip.html"><img src="images/trrrrip.@2x-80.jpg" alt="trrrrip"></a></li>
             <li><a href=""></a><img src="images/comingsoon.png" alt="comingsoon"></li>
             <li><a href=""></a><img src="images/comingsoon.png"></li>
-
         </ul>
-
     </div>
     <div class="copyright"><img src="images/copyright.png" alt="copyright"></div>
-
-
 </body>
 
 </html>

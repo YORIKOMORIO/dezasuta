@@ -7,29 +7,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>森尾世里子｜portfolios</title>
     <meta name="description" content="森尾世里子のポートフォリオです。">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" href="android-chrome-256x256.png">
 
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
 <body>
-
-
-
-
-
+    <script>
+        //ハンバーガーメニュー 
+        $(function () {
+            $('.sp_btn,.sp_nav li').on('click', function () {
+                $('.sp_nav').fadeToggle();
+                $('.sp_btn').toggleClass('open');
+                // spボタンにopen classをつけたり外したりしたいので上記を追加
+            });
+            // slick
+            $('.works_slider').slick({    // ('')内はスライダーにしたいclass名を記述
+                // ,忘れ注意
+                autoplay: true,  // 自動で画像がスライドする
+                autoplaySpeed: 3500, // 自動でスライドする時の秒数を指定
+                dots: true,  // 画像の下にあるドットを表示させる
+                arrows: false,  // デフォルトの矢印を消す
+                // スライドしているところとボタンの色を変えたいのでcssも変更する
+            });
+            // 課題６
+            $('.gallery_wrap').slick({
+                autoplay: true,  // 　自動で画像がスライドする
+                autoplaySpeed: 2000,
+                slidesToShow: 5,
+                responsive: [
+                    {
+                        breakpoint: 767,
+                        settings: {
+                            slidesToShow: 1
+                        },
+                    },
+                ],
+            });
+        }); 
+    </script>
 
     <!-- header-->
-
     <header>
         <div id="header" class="header">
             <div class="header_inner">
-                <h1 class="header_logo"><img src="images/rogo.png" alt="morio portfolio site."></h1>
+                <h1 class="header_logo">
+                    <a href="#header"></a>
+                    <img src="images/rogo.png" alt="morio portfolio site.">
+                </h1>
                 <nav class="pc_nav">
                     <ul>
-                        <li><a href="#home"><img src="images/home_top.png" alt="home"></a></li>
+                        <li><a href="#header"><img src="images/home_top.png" alt="home"></a></li>
                         <li><a href="#concept"><img src="images/concept_top.png" alt="concept"></a></li>
                         <li><a href="#home-works"><img src="images/works_top.png" alt="works"></a></li>
                         <li><a href="#skill"><img src="images/skill_top.png" alt="skill"></a></li>
@@ -37,124 +74,129 @@
                         <li><a href="#contact"><img src="images/contact_top.png" alt="contact"></a></li>
                     </ul>
                 </nav>
+                <div class="sp_btn "><span></span></div>
+                <nav class="sp_nav">
+                    <ul>
+                        <li><a href="#header">HOME</a></li>
+                        <li><a href="#concept">CONCEPT</a></li>
+                        <li><a href="#home-works">WORKS</a></li>
+                        <li><a href="#skill">SKILL</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#contact">CONCEPT</a></li>
+                    </ul>
+                </nav>
             </div>
-
         </div>
     </header>
-
-    <div class="mv">
-        <div class="mv_inner"><img src="images/fv.png" alt="つながる、つなげる。とロゴ"></div>
-
-
+    <div class="fv">
+        <picture>
+            <source media="(min-width: 767px)" srcset="images/fv.png">
+            <img src="images/fv_sp.png" alt="つながる、つなげる。とロゴ">
+        </picture>
     </div>
     <div class="scroll"><img src="images/scroll.png" alt=""></div>
 
-
-
-
-
-
-
     <!-- concept -->
-
-    <section id="concept" class="concept">
+    <div id="concept" class="concept">
         <p>お客様の想い。<br>想いに寄り添ったデザイン。<br>この２つの想いがつながる瞬間をイメージし、<br>モチーフのデザインを考えました。<br>お客様のイメージするデザインに辿り<br>着くまでの道のりを<br>Mで表現しています。<br>お客様とつながったご縁を大切に、<br>お客様の想いをつなげます。
         </p>
-    </section>
-
-
-
-
-
-
-
+    </div>
 
     <!-- works -->
-
     <section id="home-works" class="home-works">
-        <h2><img src="images/works.png" alt="works"></h2>
-        <ul class="home-works_wrap">
-            <li><a href=""><img src="images/portfollilo.png" alt="portfolio"></a></li>
-            <li><a href=""><img src="images/designcafe@2x-80.jpg" alt="designcafe"></a></li>
-            <li><a href=""><img src="images/lifehair@2x-80.jpg" alt="lifehair"></a></li>
-            <li><a href=""><img src="images/trrrrip.@2x-80.jpg" alt="trrrrip"></a></li>
+        <div class="pc_works">
+            <div class="works_pc">
+                <h2><img src="images/works.png" alt="works"></h2>
+            </div>
+            <ul class="home-works_wrap">
+                <li><a href=""><img src="images/portfollilo.png" alt="portfolio"></a></li>
+                <li><a href="./works/designcafe.html"><img src="images/designcafe@2x-80.jpg" alt="designcafe"></a></li>
+                <li><a href="./works/lifehair.html"><img src="images/lifehair@2x-80.jpg" alt="lifehair"></a></li>
+                <li><a href="./works/trrrip.html"><img src="images/trrrrip.@2x-80.jpg" alt="trrrrip"></a></li>
+            </ul>
+            <a href="./works/index.html" class="btn_pc">MORE</a>
+        </div>
+        <div class="slider_wrap">
+            <div class="works_sp">
+                <h2><img src="images/works_sp.png" alt=""></h2>
+            </div>
+            <div class="works_slider">
+                <!-- imgタグをそのまま縦並びにするのはNG -->
+                <!-- imgの前にdivを追加 -->
 
-        </ul>
-        <a href="./works/index.html" class="btn_works">MORE</a>
-
+                <div><a href=""></a><img src="images/portfollilo.png" alt="賑わっている店内"></div>
+                <div><a href="./works/designcafe.html"></a><img src="images/designcafe@2x-80.jpg" alt="コーヒー豆">
+                </div>
+                <div><a href="./works/lifehair.html"></a><img class="is_pc" src="images/lifehair@2x-80.jpg"
+                        alt="キッチンが見える店内"></div>
+                <div><a href="./works/trrrip.html"></a><img class="is_pc" src="images/trrrrip.@2x-80.jpg"
+                        alt="CAFE電光掲示板">
+                </div>
+            </div>
+            <a href="./works/index.html" class="btn_sp">MORE</a>
+        </div>
     </section>
 
-
-
-
-
-
-
-
     <!-- skill -->
-
     <section id="skill" class="skill">
-        <h2><img src="images/skill.png" alt="skill"></h2>
+        <div class="skill_pc">
+            <h2><img src="images/skill.png" alt="skill"></h2>
+        </div>
+        <div class="skill_sp">
+            <h2><img src="images/skill_sp.png" alt=""></h2>
+        </div>
         <div class="skill_wrap">
             <div class="skill_head">
                 <p>Illustrator・Photoshopを使用し、ホームページサイトやランディングページバナー等作成可能です。<br>オンラインスクール在学中は毎週課題があり、朝から夜中まで制作に打ち込みました。<br>お客様が求めているデザインを表現できるよう、これからも技術を磨き続けます。
                 </p>
             </div>
+            <!-- <div class="skill_head_sp">
+                <p>Illustrator・Photoshopを使用し、ホームページサイトやランディングページバナー等作成可能です。<br>オンラインスクール在学中は毎週課題があり、朝から夜中まで制作に打ち込みました。<br>お客様が求めているデザインを表現できるよう、これからも技術を磨き続けます。
+                </p>
+            </div> -->
             <div class="skill_img_right"><img src="images/Illustrator.png" alt="Illustrator,photoshop"></div>
             <div class="skill_img_center"><img src="images/pc.png" alt="pc"></div>
             <div class="skill_img_left"><img src="images/html.png" alt="html,JavaScript"></div>
             <div class="skill_foot">
-                <p>レスポンシブに対応したWebサイト・LP作成や、<br>jQueryを使用し、動きのあるデザインを作成する事ができます。<br>コーディングを理解し、コーディングを意識したWEBデザインを作成する大切さを学びました。
+                <p>レスポンシブに対応したWebサイト・LP作成や、<br
+                        class="pc_only">jQueryを使用し、動きのあるデザインを作成する事ができます。<br>コーディングを理解し、コーディングを意識したWEBデザインを作成する大切さを学びました。
                 </p>
             </div>
         </div>
     </section>
 
-
-
-
-
-
-
-
     <!-- about -->
-
     <section id="about" class="about">
-        <h2><img src="images/about.png" alt="about"></h2>
+        <div class="about_pc">
+            <h2><img src="images/about.png" alt="about"></h2>
+        </div>
+        <div class="about_sp">
+            <h2><img src="images/about_sp.png" alt=""></h2>
+        </div>
         <div class="about_wrap">
-            <img src="images/profile.png" alt="profile">
+            <div class="about_img"><img src="images/profile.png" alt="profile"></div>
             <div class="about_wrap_inner">
                 <p>“もう一度人と関わる仕事がしたい。”<br>“自分の好きなことを仕事にしたい。”<br>全くの未経験からWEBデザイナーの道へ。<br>お客様に感謝し、お客様から感謝される<br>デザイナーを目指します。
                 </p>
                 <img src="images/name.png" alt="name">
-
             </div>
-
         </div>
         <a href="./about/index.html" class="btn_about">MORE</a>
     </section>
 
-
-
-
     <!-- contact -->
-
     <section id="contact" class="contact">
-        <h2><img src="images/contact.png" alt="contact "></h2>
+        <div class="contact_pc">
+            <h2><img src="images/contact.png" alt="contact "></h2>
+        </div>
         <div class="contact_wrap">
-            <p>お仕事のご依頼やサイトに関するご意見・ご感想など<br>お気軽にご連絡ください。</p>
+            <p>お仕事のご依頼やサイトに関するご意見・ご感想など<br class="pc_only">お気軽にご連絡ください。</p>
             <a href="" class="contact_btn">お問い合わせはこちら</a>
         </div>
     </section>
 
-
-
-
-
     <!-- copyright -->
-
     <div class="copyright"><img src="images/copyright.png" alt="copyright"></div>
 </body>
-
 
 </html>
