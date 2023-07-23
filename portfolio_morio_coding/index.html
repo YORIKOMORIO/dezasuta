@@ -12,66 +12,38 @@
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="android-chrome-256x256.png">
-
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/3-2-3-1/css/reset.css">
+    <link rel="stylesheet" type="text/css"
+        href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/3-2-3-1/css/3-2-3-1.css">
 </head>
 
 <body>
-    <script>
-        //ハンバーガーメニュー 
-        $(function () {
-            $('.sp_btn,.sp_nav li').on('click', function () {
-                $('.sp_nav').fadeToggle();
-                $('.sp_btn').toggleClass('open');
-                // spボタンにopen classをつけたり外したりしたいので上記を追加
-            });
-            // slick
-            $('.works_slider').slick({    // ('')内はスライダーにしたいclass名を記述
-                // ,忘れ注意
-                autoplay: true,  // 自動で画像がスライドする
-                autoplaySpeed: 3500, // 自動でスライドする時の秒数を指定
-                dots: true,  // 画像の下にあるドットを表示させる
-                arrows: false,  // デフォルトの矢印を消す
-                // スライドしているところとボタンの色を変えたいのでcssも変更する
-            });
-            // 課題６
-            $('.gallery_wrap').slick({
-                autoplay: true,  // 　自動で画像がスライドする
-                autoplaySpeed: 2000,
-                slidesToShow: 5,
-                responsive: [
-                    {
-                        breakpoint: 767,
-                        settings: {
-                            slidesToShow: 1
-                        },
-                    },
-                ],
-            });
-        }); 
-    </script>
+    <div class="loading is-active"></div>
+
+
 
     <!-- header-->
     <header>
         <div id="header" class="header">
             <div class="header_inner">
                 <h1 class="header_logo">
-                    <a href="#header"></a>
-                    <img src="images/rogo.png" alt="morio portfolio site.">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="morio portfolio site."></a>
                 </h1>
                 <nav class="pc_nav">
                     <ul>
-                        <li><a href="#header"><img src="images/home_top.png" alt="home"></a></li>
+                        <li><a href="index.html"><img src="images/home_top.png" alt="home"></a></li>
                         <li><a href="#concept"><img src="images/concept_top.png" alt="concept"></a></li>
-                        <li><a href="#home-works"><img src="images/works_top.png" alt="works"></a></li>
+                        <li><a href="./works/index.html"><img src="images/works_top.png" alt="works"></a></li>
                         <li><a href="#skill"><img src="images/skill_top.png" alt="skill"></a></li>
-                        <li><a href="#about"><img src="images/about_top.png" alt="about"></a></li>
-                        <li><a href="#contact"><img src="images/contact_top.png" alt="contact"></a></li>
+                        <li><a href="./about/index.html"><img src="images/about_top.png" alt="about"></a></li>
+                        <li><a href="contact.html"><img src="images/contact_top.png" alt="contact"></a></li>
                     </ul>
                 </nav>
                 <div class="sp_btn "><span></span></div>
@@ -79,22 +51,25 @@
                     <ul>
                         <li><a href="#header">HOME</a></li>
                         <li><a href="#concept">CONCEPT</a></li>
-                        <li><a href="#home-works">WORKS</a></li>
+                        <li><a href="./works/index.html">WORKS</a></li>
                         <li><a href="#skill">SKILL</a></li>
-                        <li><a href="#about">ABOUT</a></li>
-                        <li><a href="#contact">CONCEPT</a></li>
+                        <li><a href="./about/index.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
+
     </header>
     <div class="fv">
-        <picture>
+        <picture class="fv_front">
             <source media="(min-width: 767px)" srcset="images/fv.png">
             <img src="images/fv_sp.png" alt="つながる、つなげる。とロゴ">
         </picture>
+
     </div>
-    <div class="scroll"><img src="images/scroll.png" alt=""></div>
+
+    <div class="scroll"><img src="images/scroll.png" alt="scroll"></div>
 
     <!-- concept -->
     <div id="concept" class="concept">
@@ -110,7 +85,8 @@
             </div>
             <ul class="home-works_wrap">
                 <li><a href=""><img src="images/portfollilo.png" alt="portfolio"></a></li>
-                <li><a href="./works/designcafe.html"><img src="images/designcafe@2x-80.jpg" alt="designcafe"></a></li>
+                <li><a href="./works/designcafe.html"><img src="images/designcafe@2x-80.jpg" alt="designcafe"></a>
+                </li>
                 <li><a href="./works/lifehair.html"><img src="images/lifehair@2x-80.jpg" alt="lifehair"></a></li>
                 <li><a href="./works/trrrip.html"><img src="images/trrrrip.@2x-80.jpg" alt="trrrrip"></a></li>
             </ul>
@@ -118,7 +94,7 @@
         </div>
         <div class="slider_wrap">
             <div class="works_sp">
-                <h2><img src="images/works_sp.png" alt=""></h2>
+                <h2><img src="images/works_sp.png" alt="works"></h2>
             </div>
             <div class="works_slider">
                 <!-- imgタグをそのまま縦並びにするのはNG -->
@@ -143,7 +119,7 @@
             <h2><img src="images/skill.png" alt="skill"></h2>
         </div>
         <div class="skill_sp">
-            <h2><img src="images/skill_sp.png" alt=""></h2>
+            <h2><img src="images/skill_sp.png" alt="skill"></h2>
         </div>
         <div class="skill_wrap">
             <div class="skill_head">
@@ -171,7 +147,7 @@
             <h2><img src="images/about.png" alt="about"></h2>
         </div>
         <div class="about_sp">
-            <h2><img src="images/about_sp.png" alt=""></h2>
+            <h2><img src="images/about_sp.png" alt="about"></h2>
         </div>
         <div class="about_wrap">
             <div class="about_img"><img src="images/profile.png" alt="profile"></div>
@@ -186,17 +162,20 @@
 
     <!-- contact -->
     <section id="contact" class="contact">
-        <div class="contact_pc">
-            <h2><img src="images/contact.png" alt="contact "></h2>
-        </div>
+        <h2 class="contact_pc"><img src="images/contact.png" alt="contact "></h2>
         <div class="contact_wrap">
             <p>お仕事のご依頼やサイトに関するご意見・ご感想など<br class="pc_only">お気軽にご連絡ください。</p>
-            <a href="" class="contact_btn">お問い合わせはこちら</a>
+            <a href="contact.html" class="contact_btn">お問い合わせはこちら</a>
         </div>
     </section>
 
     <!-- copyright -->
     <div class="copyright"><img src="images/copyright.png" alt="copyright"></div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/3-2-3-1/js/3-2-3-1.js"></script>
+    <script src="js/script.js"> </script>
+
 </body>
 
 </html>

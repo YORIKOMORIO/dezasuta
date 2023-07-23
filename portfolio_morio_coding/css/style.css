@@ -1,4 +1,62 @@
 @charset "utf-8";
+
+.roading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #f2eee7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.roading::before,
+.roading::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  width: 42%;
+  height: 10px;
+  background-color: #f2eee7;
+  transition: 3s;
+}
+.roading::before {
+  left: 0;
+  transform: translateX(-100%);
+}
+.roading::after {
+  right: 0;
+  transform: matrix(100%);
+}
+
+.works_pc,
+.skill_pc,
+.about_pc {
+  animation-name: fadeDownAnime;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeDownAnime {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+
+.work_pc {
+  opacity: 0;
+}
+
 .body {
   overflow-x: hidden;
 }
@@ -51,7 +109,7 @@
 }
 .concept p {
   margin: 0 auto;
-  margin-top: 160px;
+  padding-top: 180px;
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 18px;
@@ -63,6 +121,8 @@
 .home-works {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 .home-works_wrap {
   display: flex;
@@ -70,9 +130,11 @@
   flex-wrap: wrap;
 }
 .pc_works h2 {
+  max-width: 76px;
   width: 7.6%;
   position: absolute;
   left: calc(50% + 520px);
+  background-color: transparent;
 }
 .works_slider {
   display: none;
@@ -85,7 +147,6 @@
   .works_pc h2 {
     left: auto;
     right: 0%;
-    left: calc(50% + 440px);
   }
   .home-works_wrap {
     width: calc(100% - 76px);
@@ -95,7 +156,6 @@
   .works_pc h2 {
     left: auto;
     right: 0%;
-    left: calc(50% + 360px);
   }
   .home-works_wrap {
     width: calc(93% - 76px);
@@ -105,7 +165,6 @@
   .works_pc h2 {
     left: auto;
     right: 0%;
-    left: calc(50% + 340px);
   }
   .home-works_wrap {
     width: calc(100% - 76px);
@@ -113,7 +172,6 @@
 }
 .home-works_wrap li {
   width: 45%;
-  height: 450px;
   margin-bottom: 100px;
 }
 a.btn_pc,
@@ -122,7 +180,7 @@ a.btn_sp {
   text-align: center;
   text-decoration: none;
   width: 50px;
-  margin: 0 0 0 auto;
+  margin: 0 0 100px auto;
   padding: 1rem 4rem;
   font-weight: bold;
   background: #232323;
@@ -144,17 +202,20 @@ a.btn_sp {
 .skill {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 .skill_wrap {
-  margin-top: 290px;
+  padding-top: 100px;
   margin-bottom: 275px;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 .skill_pc h2 {
+  max-width: 76px;
   width: 7.6%;
   position: absolute;
   left: calc(50% - 576px);
+  background-color: transparent;
+  margin-top: 100px;
 }
 @media screen and (max-width: 1150px) {
   .skill_pc h2 {
@@ -216,14 +277,18 @@ a.btn_sp {
 .about {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 .about_sp {
   display: none;
 }
 .about_pc h2 {
+  max-width: 76px;
   width: 7.6%;
   position: absolute;
   left: calc(50% + 500px);
+  background-color: transparent;
 }
 @media screen and (max-width: 1190px) {
   .about_pc h2 {
@@ -290,14 +355,17 @@ a.btn_about:hover {
   display: flex;
   background-color: #fffe3e;
   text-align: center;
-  height: 400px;
+  height: 500px;
   justify-content: center;
   align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
 }
-.contact_pc h2 {
+.contact_pc {
   background-color: #fffe3e;
   width: 46%;
-  margin: 0 auto;
+  max-width: 350px;
+  margin-right: 7.5%;
 }
 
 .contact_wrap p {
@@ -310,7 +378,6 @@ a.btn_about:hover {
 }
 .contact_wrap {
   max-width: 384px;
-  margin-right: 240px;
 }
 .contact_btn {
   display: flex;
@@ -335,6 +402,106 @@ a.btn_about:hover {
   background-color: #fffe3e;
 }
 
+.btn_page {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  margin: 0 auto;
+  padding: 20px 0px;
+  font-weight: bold;
+  background: #232323;
+  color: #f2eee7;
+  transition: 0.3s;
+  margin-top: 110px;
+  margin-bottom: 290px;
+  border: #232323 solid 2px;
+}
+button.btn_page:hover {
+  color: #232323;
+  background: #fffe3e;
+}
+.ttl {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  width: 1000px;
+  height: 100px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #232323;
+  margin-top: 60px;
+  margin-bottom: 110px;
+}
+.ttl_wrap {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1000px;
+  height: 100px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #232323;
+  margin-top: 150px;
+  margin-bottom: 110px;
+}
+.ttl_box {
+  background-color: #fffe3e;
+  width: 20px;
+  height: 100px;
+}
+.ttl_wrap img {
+  width: 218px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.ttl_wrap p {
+  border-left: 3px solid #232323;
+  font-size: 20px;
+  padding: 23px 0 23px 44px;
+}
+.contact_text {
+  margin-bottom: 50px;
+}
+.contact_text p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+.contact_form {
+  display: block;
+}
+.contact_page {
+  width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 150px;
+}
+.contact_page input,
+.contact_page textarea {
+  display: block;
+  width: 100%;
+  border: none;
+}
+.contact_page label {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.contact_page input {
+  height: 80px;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+.contact_page textarea {
+  height: 400px;
+  margin-bottom: 80px;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+.contact_page button {
+  text-align: center;
+}
+
 @media screen and (max-width: 900px) {
   /* jugyou */
   .pc_nav {
@@ -343,7 +510,7 @@ a.btn_about:hover {
   .sp_btn {
     display: block;
     position: absolute;
-    top: 20px;
+    top: 50px;
     right: 25px;
     height: 23px;
     cursor: pointer;
@@ -448,10 +615,12 @@ a.btn_about:hover {
   }
   .works_slider {
     display: block;
+    text-align: center;
   }
   .works_slider img {
     width: 80%;
     margin: 0 auto;
+    padding-bottom: 50px;
   }
   .works_sp {
     display: block;
@@ -476,7 +645,7 @@ a.btn_about:hover {
   .skill_wrap {
     padding-left: 30px;
     padding-right: 30px;
-    margin-top: 50px;
+    padding-top: 50px;
     margin-bottom: 200px;
   }
   .skill_head {
@@ -494,12 +663,13 @@ a.btn_about:hover {
     display: block;
     margin: 0 auto;
     width: 144px;
-    margin-bottom: 50px;
-    margin-top: 200px;
+    margin-bottom: 0px;
+    margin-top: 150px;
   }
   .skill_img_center {
     width: 200px;
     height: 242px;
+    margin-top: 110px;
   }
   .skill_img_right {
     width: 100px;
@@ -535,10 +705,11 @@ a.btn_about:hover {
     display: none;
   }
   .about_img {
-    width: 300px;
+    width: 200px;
     display: block;
     margin: 0 auto;
   }
+
   .about_wrap {
     display: block;
     margin: 0 auto;
@@ -556,11 +727,13 @@ a.btn_about:hover {
     text-align: center;
     font-size: 14px;
     line-height: 2.07;
+    padding-top: 20px;
   }
   a.btn_about {
     padding: 0.5rem 2rem;
     margin-right: 20px;
     margin-top: 30px;
+    margin-bottom: 200px;
   }
   a.btn_pc {
     padding: 0.5rem 2rem;
@@ -572,12 +745,19 @@ a.btn_about:hover {
   .about_wrap p {
     margin: 0 auto;
   }
+  .btn_page {
+    margin-bottom: 100px;
+  }
 
   .contact {
     display: block;
     height: 500px;
   }
-  .contact_pc h2 {
+  .contact_page {
+    margin-bottom: 100px;
+    padding-bottom: 0;
+  }
+  .contact_pc {
     margin: 0 auto;
     padding-top: 120px;
     padding-bottom: 80px;
@@ -590,5 +770,61 @@ a.btn_about:hover {
     font-size: 16px;
     width: 200px;
     margin: 0 auto;
+  }
+  .copyright {
+    padding-top: 45px;
+    padding-bottom: 45px;
+  }
+  .ttl_wrap,
+  .ttl_box {
+    border-width: 2px;
+    height: 60px;
+  }
+  .ttl_wrap {
+    width: 375px;
+    margin-top: 100px;
+  }
+  .ttl_wrap img {
+    width: 145px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .work_pc {
+    width: 145px;
+  }
+  .ttl_wrap p {
+    font-size: 15px;
+    padding: 18px 0 18px 10px;
+    border-left: 2px solid #232323;
+  }
+  .contact_page input {
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  .contact_page textarea {
+    height: 250px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+  }
+  .form {
+    width: 335px;
+  }
+  .contact_page_wrap {
+    width: 335px;
+  }
+  .contact_text p {
+    margin: 0 auto;
+    font-size: 15px;
+  }
+  .contact_text {
+    width: 375px;
+  }
+  .contact_page {
+    width: 375px;
+    margin: 0 auto;
+  }
+  .ttl_wrap {
+    margin-bottom: 50px;
   }
 }
