@@ -1,5 +1,32 @@
 @charset "utf-8";
+/* 拡大（スクロール） */
+.fadeTrigger {
+  opacity: 0;
+}
+.fade-in {
+  animation-name: zoomInAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
 
+@keyframes zoomInAnime {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* 拡大（スクロールなし） */
+.fade-Trigger {
+  animation-name: zoomInAnime;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
 .fv_wrap {
   position: relative;
 }
@@ -145,11 +172,23 @@ a.btn_home:hover {
   }
 }
 @media screen and (max-width: 767px) {
+  .text_inner {
+    margin-top: 50px;
+  }
   .text_inner p {
     font-size: 14px;
     line-height: 1.57;
   }
   a.btn_home {
     padding: 10px 40px;
+  }
+  .fv_wrap img {
+    margin-top: 100px;
+  }
+  a.btn_home {
+    width: 50px;
+    padding: 10px 20px;
+    border: #232323 solid 1px;
+    font-size: 15px;
   }
 }

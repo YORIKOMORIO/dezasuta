@@ -17,8 +17,7 @@ li {
   line-height: 1;
   color: #232323;
   background: #f2eee7;
-  font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "メイリオ",
-    "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-family: "Noto Sans JP";
 }
 a {
   text-decoration: none;

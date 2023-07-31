@@ -6,25 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>森尾世里子｜portfolios</title>
-    <meta name="description" content="森尾世里子のポートフォリオです。">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <meta name="description" content="森尾世里子のポートフォリオです。Illustrator・Photoshopを使用したWEBデザインとレスポンシブに対応したコーディングを作成することができます。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" href="android-chrome-192x192.png">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <link rel="stylesheet" type="text/css"
         href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/3-2-3-1/css/reset.css">
     <link rel="stylesheet" type="text/css"
         href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/3-2-3-1/css/3-2-3-1.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
 </head>
 
 <body>
-    <div class="loading is-active"></div>
+    <div class="loading">
+        <div class="fv_top">
+            <span class="fv_1 fv_letter"><img src="images/1.png" alt="つ"></span>
+            <span class="fv_2 fv_letter"><img src="images/2.png" alt="な"></span>
+            <span class="fv_3 fv_letter"><img src="images/3.png" alt="が"></span>
+            <span class="fv_4 fv_letter"><img src="images/4.png" alt="る"></span>
+            <span class="fv_5 fv_letter bold"><img src="images/5.png" alt="、"></span>
+        </div>
+        <span class="loading_m left"><img src="images/m_left.png" alt="m-left"></span>
+        <span class="loading_m right"><img src="images/m_right.png" alt="m_right"></span>
+        <div class="fv_bottom">
+            <span class="fv_6 fv_letter"><img src="images/6.png" alt="つ"></span>
+            <span class="fv_7 fv_letter"><img src="images/7.png" alt="な"></span>
+            <span class="fv_8 fv_letter"><img src="images/8.png" alt="げ"></span>
+            <span class="fv_9 fv_letter"><img src="images/9.png" alt="る"></span>
+            <span class="fv_10 fv_letter"><img src="images/10.png" alt="。"></span>
+        </div>
+    </div>
 
 
 
@@ -49,7 +67,7 @@
                 <div class="sp_btn "><span></span></div>
                 <nav class="sp_nav">
                     <ul>
-                        <li><a href="#header">HOME</a></li>
+                        <li><a href="index.html">HOME</a></li>
                         <li><a href="#concept">CONCEPT</a></li>
                         <li><a href="./works/index.html">WORKS</a></li>
                         <li><a href="#skill">SKILL</a></li>
@@ -72,7 +90,7 @@
     <div class="scroll"><img src="images/scroll.png" alt="scroll"></div>
 
     <!-- concept -->
-    <div id="concept" class="concept">
+    <div id="concept" class="concept fade-in">
         <p>お客様の想い。<br>想いに寄り添ったデザイン。<br>この２つの想いがつながる瞬間をイメージし、<br>モチーフのデザインを考えました。<br>お客様のイメージするデザインに辿り<br>着くまでの道のりを<br>Mで表現しています。<br>お客様とつながったご縁を大切に、<br>お客様の想いをつなげます。
         </p>
     </div>
@@ -81,7 +99,7 @@
     <section id="home-works" class="home-works">
         <div class="pc_works">
             <div class="works_pc">
-                <h2><img src="images/works.png" alt="works"></h2>
+                <h2 class="fade-down"><img src="images/works.png" alt="works"></h2>
             </div>
             <ul class="home-works_wrap">
                 <li><a href=""><img src="images/portfollilo.png" alt="portfolio"></a></li>
@@ -92,30 +110,34 @@
             </ul>
             <a href="./works/index.html" class="btn_pc">MORE</a>
         </div>
-        <div class="slider_wrap">
-            <div class="works_sp">
-                <h2><img src="images/works_sp.png" alt="works"></h2>
-            </div>
-            <div class="works_slider">
-                <!-- imgタグをそのまま縦並びにするのはNG -->
-                <!-- imgの前にdivを追加 -->
-
-                <div><a href=""></a><img src="images/portfollilo.png" alt="賑わっている店内"></div>
-                <div><a href="./works/designcafe.html"></a><img src="images/designcafe@2x-80.jpg" alt="コーヒー豆">
-                </div>
-                <div><a href="./works/lifehair.html"></a><img class="is_pc" src="images/lifehair@2x-80.jpg"
-                        alt="キッチンが見える店内"></div>
-                <div><a href="./works/trrrip.html"></a><img class="is_pc" src="images/trrrrip.@2x-80.jpg"
-                        alt="CAFE電光掲示板">
-                </div>
-            </div>
-            <a href="./works/index.html" class="btn_sp">MORE</a>
+        <!-- <div class="slider_wrap"> -->
+        <div class="works_sp">
+            <h2><img src="images/works_sp.png" alt="works"></h2>
         </div>
+        <div class="works_sp_wrap">
+            <div class="works_mock fadeLeft"><img src="images/dc_mock.png" alt="desighcafe"></div>
+            <div class="works_block">
+                <img src="images/dc_logo.png" alt="" class="works_logo">
+                <p>WEB DESIGH,CODING</p>
+            </div>
+            <div class="works_mock fadeLeft"><img src="images/lifehair_mock.png" alt="lifehair"></div>
+            <div class="works_block">
+                <img src="images/lifehair_logo.png" alt="" class="works_logo">
+                <p>WEB DESIGH</p>
+            </div>
+            <div class="works_mock fadeLeft"><img src="images/trrrrip.@2x-80.jpg" alt="trrrrip"></div>
+            <div class="works_block">
+                <img src="images/trrrip_logo.png" alt="trrrrip" class="works_logo">
+                <p>WEB DESIGH</p>
+            </div>
+        </div>
+        <a href="./works/index.html" class="btn_sp">MORE</a>
+
     </section>
 
     <!-- skill -->
     <section id="skill" class="skill">
-        <div class="skill_pc">
+        <div class="skill_pc fade-down">
             <h2><img src="images/skill.png" alt="skill"></h2>
         </div>
         <div class="skill_sp">
@@ -130,8 +152,10 @@
                 <p>Illustrator・Photoshopを使用し、ホームページサイトやランディングページバナー等作成可能です。<br>オンラインスクール在学中は毎週課題があり、朝から夜中まで制作に打ち込みました。<br>お客様が求めているデザインを表現できるよう、これからも技術を磨き続けます。
                 </p>
             </div> -->
+
             <div class="skill_img_right"><img src="images/Illustrator.png" alt="Illustrator,photoshop"></div>
-            <div class="skill_img_center"><img src="images/pc.png" alt="pc"></div>
+            <div class="skill_img_center_pc"><img src="images/pc.png" alt="pc"></div>
+            <div class="skill_img_center_sp fadeTrigger"><img src="images/pc.png" alt="pc"></div>
             <div class="skill_img_left"><img src="images/html.png" alt="html,JavaScript"></div>
             <div class="skill_foot">
                 <p>レスポンシブに対応したWebサイト・LP作成や、<br
@@ -144,7 +168,7 @@
     <!-- about -->
     <section id="about" class="about">
         <div class="about_pc">
-            <h2><img src="images/about.png" alt="about"></h2>
+            <h2 class="fade-down"><img src="images/about.png" alt="about"></h2>
         </div>
         <div class="about_sp">
             <h2><img src="images/about_sp.png" alt="about"></h2>
@@ -162,7 +186,7 @@
 
     <!-- contact -->
     <section id="contact" class="contact">
-        <h2 class="contact_pc"><img src="images/contact.png" alt="contact "></h2>
+        <h2 class="contact_pc fadeTrigger"><img src="images/contact.png" alt="contact "></h2>
         <div class="contact_wrap">
             <p>お仕事のご依頼やサイトに関するご意見・ご感想など<br class="pc_only">お気軽にご連絡ください。</p>
             <a href="contact.html" class="contact_btn">お問い合わせはこちら</a>

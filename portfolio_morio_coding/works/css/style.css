@@ -1,4 +1,54 @@
 @charset "utf-8";
+.fadeLeft {
+  opacity: 0;
+}
+.scroll-left {
+  animation-name: fadeLeftAnime;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes fadeLeftAnime {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* 拡大（スクロール） */
+.fadeTrigger {
+  opacity: 0;
+}
+.fade-in {
+  animation-name: zoomInAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+/* 拡大（スクロールなし） */
+.fade-Trigger {
+  animation-name: zoomInAnime;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes zoomInAnime {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.frame {
+  padding: 0 20px;
+}
 .ttl {
   display: flex;
   align-items: center;
@@ -26,13 +76,13 @@
   margin-bottom: 100px;
 }
 .ttl_text p {
-  padding: 40px 0 40px 30px;
+  padding: 20px 0 20px 30px;
   border-left: 4px solid #232323;
   font-size: 20px;
 }
 .ttl_box {
   background-color: #fffe3e;
-  width: 20px;
+  width: 15px;
   height: 100px;
 }
 .ttl_wrap img {
@@ -45,6 +95,7 @@
 .works {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 .works_wrap {
   display: flex;
@@ -93,7 +144,7 @@
   width: 188px;
   margin-top: 100px;
   margin-bottom: 50px;
-  padding-left: 20px;
+  padding-left: 40px;
 }
 .text_box {
   width: 8px;
@@ -146,6 +197,7 @@
     cursor: pointer;
     z-index: 2;
     /* 重なり順を指定 */
+    margin-right: 20px;
   }
   .sp_btn span {
     display: block;
@@ -239,14 +291,20 @@
   .pc_works {
     display: none;
   }
+  .frame {
+    margin-top: 130px;
+  }
   .ttl_wrap,
   .ttl_wrap_w,
   .ttl_box {
     border-width: 2px;
     height: 60px;
   }
+  .ttl_box {
+    width: 10px;
+  }
   .ttl_wrap {
-    width: 375px;
+    max-width: 90%;
     margin: 30px auto 50px;
   }
   .ttl_wrap img {
@@ -258,7 +316,7 @@
     margin-top: 50px;
     margin-bottom: 30px;
     width: 130px;
-    padding-left: 40px;
+    padding-left: 60px;
   }
   .work_pc {
     width: 145px;
@@ -270,7 +328,7 @@
   }
   .ttl_wrap p {
     font-size: 15px;
-    padding: 18px 0 18px 10px;
+    padding: 10px 0 10px 10px;
     border-left: 2px solid #232323;
   }
   .works_wrap li {
@@ -280,7 +338,7 @@
     margin: 0 auto;
   }
   .ttl_wrap_w {
-    margin: 50px 40px 30px 40px;
+    margin: 50px 10px 30px 10px;
   }
   .ttl_wrap_w p {
     display: none;
@@ -292,7 +350,7 @@
   .ttl_sp {
     display: flex;
     margin: 0 auto;
-    margin-left: 40px;
+    margin-left: 60px;
   }
   .ttl_left {
     border: none;
@@ -321,8 +379,14 @@
     margin: 0 auto;
   }
   .works_img {
-    padding-left: 40px;
+    padding-left: 60px;
     padding-right: 40px;
     margin: 0px;
+  }
+  .text_top {
+    padding-left: 60px;
+  }
+  .text_inner {
+    padding-left: 20px;
   }
 }
